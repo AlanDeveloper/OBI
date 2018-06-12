@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n = 12;
+        let vetor = [45, 0, 33, 70, 12, 55, 70, 70, 90, 55, 70, 100];
+        let rept = [1], cont = 1, cont2 = 0, aux = 1;
+        for (let i = 0; i < vetor.length; i++) {
+            for (let i2 = 1; i2 < vetor.length; i2++) {
+                if (vetor[i] === vetor[i2]) {
+                    cont++;
+                    if (cont > aux) {
+                        aux = cont;
+                    }
+                    rept[cont2] = cont;
+                }
+                
+            }
+            cont2++;
+            cont = 0;
+        }
+        cont2 = aux;
+        for (let i = 0; i < vetor.length; i++) {
+            vetor[i] = rept[i] * vetor[i];
+            if (vetor[i] > aux && rept[i] === cont2) {
+                aux = vetor[i];
+                cont = rept[i];
+            }
+            
+        }
+        console.log(aux/cont)
+    </script>
+</body>
+</html>
