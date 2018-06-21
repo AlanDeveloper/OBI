@@ -1,28 +1,42 @@
-var line = 0, col= 0;
-scanf("%d%d\n","line","col");
-var posicao = [], f, achou = 0, i= 0; 
-while (i < line*col) {
-    scanf("%s\n","d2");
-    posicao[i] = d2.slice(0,1);
-    posicao[i+1] = d2.slice(1,2);
-    posicao[i+2] = d2.slice(2,3);
-    posicao[i+3] = d2.slice(3,4);
+var line = 0, col = 0;
+scanf("%d%d", "line", "col");
+var vetor = [], string = '', achou = 0, i = 0, i2 = 0;
+while ( i < col*line) {
+    scanf("%s\n", "string");
+    while (i2 != string.length){
+        vetor[i2] = string.charAt(i2);
+        i2++;
+    }
+    i2 = 0;
     i = i + col;
 }
-for (var i = 0; posicao[i] != 'o'; i++) {Move();}
-
-function Move() {
-    i++;
-    while (achou != 1) {
-        if (posicao[i+col] === 'H') { posicao[i] = '.';i = i + col;}
-        if (posicao[i-col] === 'H') { posicao[i] = '.';i = i - col;}
-        if (posicao [i+1] === 'H') { posicao[i] = '.';i++;}
-        if (posicao [i-1] === 'H') { posicao[i] = '.';i--;}
-        if (posicao[i+col] != 'H' && posicao[i-col] != 'H' && posicao [i+1] != 'H' && posicao [i-1] != 'H') {
-            achou = 1;
-            // printf('Linha %s Coluna %s', );
-            printf("%d",i);
-        }
+vetor.slice(0,vetor.length-1);
+for (var i = 0; vetor[i] != 'o'; i++) {}
+while (achou != 1) {
+    if (vetor[i + col] === 'H') {
+        vetor[i + col] = 'o';
+        vetor[i] = '.';
+        i = i + col;
+    }
+    if (vetor[i - col] === 'H') {
+        vetor[i - col] = 'o';
+        vetor[i] = '.';
+        i = i - col;
+    }
+    if (vetor[i + 1] === 'H') {
+        vetor[i + 1] = 'o';
+        vetor[i] = '.';
+        i = i + 1;
+    }
+    if (vetor[i - 1] === 'H' && i % col != 0) {
+        vetor[i - 1] = 'o';
+        vetor[i] = '.';
+        i = i - 1;
     }
     printf("%d",i);
+    if (vetor[i + col] != 'H' && vetor[i - col] != 'H' && vetor[i + 1] != 'H' && vetor[i - 1] != 'H') {achou++;}
 }
+line = i / line;
+col = (i % col) + 1;
+printf("%d%d", line, col);
+// console.log('Line: ' + (i / line).toFixed(0) + ' Col: '+ (i % col + 1));
