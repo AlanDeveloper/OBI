@@ -10,7 +10,7 @@
 
 // Entrada
 // A primeira linha da entrada contém um inteiro N, o número de posições. A segunda linha contém um inteiro D, a posição do disco voador. A terceira linha contém um inteiro A, a posição do avião.
-// Saída
+// Saída	
 // Seu programa deve imprimir uma linha contendo um inteiro, o número mínimo de vezes que o jogador deve apertar o botão para poder atirar.
 // Restrições
 // 3 ≤ N ≤ 100
